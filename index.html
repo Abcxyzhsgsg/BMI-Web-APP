@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthTrack BMI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f6fb;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      width: 100%;
+      gap: 2rem;
+    }
+
+    .form-card, .info-card {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 30px;
+      flex: 1;
+    }
+
+    .form-card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .form-card h2 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    .form-card label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .form-card select,
+    .form-card input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .form-card button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .form-card button i {
+      margin-right: 8px;
+    }
+
+    .info-card h3 {
+      font-size: 20px;
+      color: #343a40;
+      margin-bottom: 15px;
+    }
+
+    .bmi-levels {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .bmi-levels li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    .bmi-levels span {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .under { background-color: #9ec5fe; }
+    .normal { background-color: #81e377; }
+    .over { background-color: #ffc107; }
+    .obese { background-color: #f66e6e; }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .heading h1 {
+      font-size: 32px;
+      color: #023e8a;
+    }
+
+    .heading span {
+      color: #0096c7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heading">
+    <h1><i class="fas fa-heartbeat"></i> HealthTrack <span>BMI</span></h1>
+  </div>
+
+  <div class="container">
+
+    <!-- Left: BMI Calculator -->
+    <div class="form-card">
+      <img src="assets/images/healthy-food.jpg" alt="Healthy Food" />
+      <h2><i class="fas fa-calculator"></i> BMI Calculator</h2>
+      <form action="calculate" method="post">
+        <label for="unit">Measurement System</label>
+        <select name="unit" id="unit" required>
+          <option value="">-- Select Unit --</option>
+          <option value="metric">Metric (kg, cm)</option>
+          <option value="imperial">Imperial (lbs, in)</option>
+        </select>
+
+        <label for="weight">Weight</label>
+        <input type="number" name="weight" step="0.1" placeholder="Enter your weight" required />
+
+        <label for="height">Height</label>
+        <input type="number" name="height" step="0.1" placeholder="Enter your height" required />
+
+        <button type="submit"><i class="fas fa-calculator"></i> Calculate BMI</button>
+      </form>
+    </div>
+
+    <!-- Right: BMI Understanding -->
+    <div class="info-card">
+      <h3><i class="fas fa-circle-info"></i> Understanding BMI</h3>
+      <ul class="bmi-levels">
+        <li><span class="under"></span> Underweight (&lt;18.5)</li>
+        <li><span class="normal"></span> Normal (18.5–24.9)</li>
+        <li><span class="over"></span> Overweight (25–29.9)</li>
+        <li><span class="obese"></span> Obese (30+)</li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>
